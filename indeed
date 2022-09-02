@@ -2,14 +2,14 @@
 import java.io.*;
 import java.util.*;
 
-class HelloWorld {
+public class Main{
     
     static int fact(int n)
     {
         int f=1;
-        for(int i=0;i<=n;i++)
+        for(int i=1;i<=n;i++)
         {
-            f*=f;
+            f*=i;
         }
         return f;
     }
@@ -36,10 +36,38 @@ class HelloWorld {
 
 }
 int id=map.size();
-System.out.println(id);
-int pairs=fact(id)/(fact(id-2)*fact(id));//nc2
-System.out.println(pairs);
+int pairs=fact(id)/(fact(id-2)*fact(2));//nc2
 
-    System.out.println(map);
+Map<String,String[]> map2=new HashMap<>();
+int index=0;
+
+
+for(Map.Entry<String,List<String>> entry:map.entrySet())
+{
+    int inIndex=index+1;
+    int temp=0;
+    
+    for(Map.Entry<String,List<String>> subentry:map.entrySet())
+    {
+        List<String> l1=new ArrayList<>();
+        List<String> l2=new ArrayList<>();
+    if(temp==inIndex)
+    {
+        String id1=entry.getKey();
+        String id2=subentry.getKey();
+        System.out.println(id1+" "+id2);
+        l1=entry.getValue();
+        l2=subentry.getValue();
+        List<String> l3 = new ArrayList<String>(l2);
+        l3.retainAll(l1);
+
+    }
+    else
+    temp++;
+    }
+    index++;
+}
+
+
     }
 }
