@@ -1,0 +1,45 @@
+
+import java.io.*;
+import java.util.*;
+
+class HelloWorld {
+    
+    static int fact(int n)
+    {
+        int f=1;
+        for(int i=0;i<=n;i++)
+        {
+            f*=f;
+        }
+        return f;
+    }
+    public static void main(String[] args) {
+      String[][] e = {
+      {"58", "Linear Algebra"},
+      {"94", "Art History"},
+      {"94", "Operating Systems"},
+      {"17", "Software Design"},
+      {"58", "Mechanics"},
+      {"58", "Economics"},
+      {"17", "Linear Algebra"},
+      {"17", "Political Science"},
+      {"94", "Economics"},
+      {"25", "Economics"},
+      {"58", "Software Design"}
+    };
+    Map<String,List<String>> map=new HashMap<>();
+    for (int i=0;i<e.length;i++) {
+    if (!map.containsKey(e[i][0])) {
+        map.put(e[i][0], new ArrayList<String>());
+    }
+    map.get(e[i][0]).add(e[i][1]);
+
+}
+int id=map.size();
+System.out.println(id);
+int pairs=fact(id)/(fact(id-2)*fact(id));//nc2
+System.out.println(pairs);
+
+    System.out.println(map);
+    }
+}
